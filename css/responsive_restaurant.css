@@ -1,0 +1,181 @@
+@media screen and (min-width: 450px) {
+  body, td, th, p {
+    font-size: 18px;
+  }
+  header h1 a {
+    font-size: 0.7em;
+    letter-spacing: 0.2aem;
+  }
+  ul, li {
+    font-size: 1em;
+  }  
+  #restaurant-name {
+    font-size: 1em;
+  }
+  #restaurant-cuisine {
+    width: 70%;
+  }
+  #restaurant-address {
+    font-size: 1em;
+  }
+  #restaurant-hours td {
+    font-size: 1.1em;
+  }
+  #reviews-container h2 {
+    font-size: 2.4em;
+  }
+  .review-name {
+    font-size: 1.5em;
+  }
+  .review-date {
+    font-size: 1.0em;
+  }
+  .review-rating {
+    margin: 0.7em 5em;
+    font-size: 1.2em;
+  }
+  .review-comments {
+    font-size: 0.9em;
+  }
+  #footer {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  body, td, th, p {
+    font-size: 24px;
+  }
+  .review-rating {
+    margin: 0.7em 7em;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #reviews-container {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  body, td, th, p {
+    font-size: 22px;
+  }
+  main, nav {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .inner header {
+    width: 100%;
+  }
+  footer {
+    width: 100%
+    padding 25px 0;
+  }
+  #restaurant-container {
+    order: 1;
+  }
+  #restaurant-details {
+    order: 2;
+  }
+  #map-container {
+    order: 3;
+  }
+  #reviews-container {
+    order: 10;
+    width: 100%;
+  }
+  .inside #map-container  {
+    width: 50%;
+    height: 20em;
+  }
+  #restaurant-details {
+    width: 45%;
+    margin-left: 1em;
+  }
+  .review-rating {
+    margin: 0.7em 9em;
+  }
+  .review-comments {
+    font-size: 1.0em;
+  }
+  #reviews-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+  }
+  .review-single {
+    width: 46%;
+    padding: 0.2em;
+  }
+  .review-name {
+    font-size: 1.3em;
+  }
+  .review-date {
+    font-size: 0.8em;
+  }
+  .review-rating {
+    font-size: 1em;
+    margin: 0.7em 3em;
+  }
+  .review-comments {
+    font-size: 0.7em;
+    margin: 0.7em;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  body, td, th, p {
+    font-size: 25px;
+  }
+  main, nav {
+    width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  footer {
+    width: 100%
+    padding 25px 0;
+  }
+  #restaurant-container {
+    order: 1;
+  }
+  #restaurant-details {
+    order: 2;
+  }
+  #map-container {
+    order: 3;
+  }
+  #reviews-container {
+    order: 10;
+    width: 100%;
+  }
+  #reviews-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+  }
+  .review-single {
+    width: 31%;
+    padding: 0.2em;
+  }
+  .review-name {
+    font-size: 1.3em;
+  }
+  .review-date {
+    font-size: 0.8em;
+  }
+  .review-rating {
+    font-size: 1em;
+    margin: 0.7em 3em;
+  }
+  .review-comments {
+    font-size: 0.7em;
+    margin: 0.7em;
+  }
+}
