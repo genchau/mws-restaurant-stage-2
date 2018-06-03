@@ -1,0 +1,33 @@
+{
+  "name": "nd024_part3_project_mws-restaurant-stage-2",
+  "version": "1.0.0",
+  "description": "---\r #### _Three Stage Course Material Project - Restaurant Reviews_",
+  "main": "service_worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genchau/mws-restaurant-stage-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/genchau/mws-restaurant-stage-2/issues"
+  },
+  "homepage": "https://github.com/genchau/mws-restaurant-stage-2#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-webserver": "^0.9.1",
+    "idb": "^2.1.2"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^8.0.0"
+  }
+}

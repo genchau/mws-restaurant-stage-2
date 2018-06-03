@@ -1,4 +1,43 @@
 /**
+ * idb.
+ */
+const idbApp = (function() {
+  'use strict';
+
+  if(!navigator.serviceWorker) {
+    console.log('Exited idbApp due to no service worker installed.');
+    return Promise.resolve();
+  }
+
+  const dbPromise = idb.open('restaurantreviews', 1, function(upgradeDb) {
+    switch (upgradeDb.oldVersion) {
+      case 0:
+        upgradeDb.createObjectStore('restaurants', {
+          keyPath: 'id'
+        });
+    }
+  });
+
+  function addRestaurantById(restaurant) {
+    dbPromise.then(function(db) {
+      const tx = db.transaction('restaurants', 'readwrite');
+      const store = tx.objectStore('restaurants');
+      return store.put(restaurant);
+    }).catch(function(e) {
+      tx.abort();
+      console.log("Unable to add restaurant to IndexedDB", e);
+    });
+  }
+
+  return {
+    dbPromise: (dbPromise),
+    addRestaurantById: (addRestaurantById),
+  };
+})();
+
+
+
+/**
  * Common database helper functions.
  */
 class DBHelper {
@@ -40,6 +79,7 @@ class DBHelper {
       } else {
         const restaurant = restaurants.find(r => r.id == id);
         if (restaurant) { // Got the restaurant
+          idbApp.addRestaurantById(restaurant); // adding restaurant to IndexedDB
           callback(null, restaurant);
         } else { // Restaurant does not exist in the database
           callback('Restaurant does not exist', null);
