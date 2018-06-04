@@ -1,7 +1,7 @@
 const staticCacheName = 'restaurant-reviews-v17';
 
 self.addEventListener('install', function(event) {
-  console.log("Service Worker installed");
+  // console.log("Service Worker installed");
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
       return cache.addAll([
@@ -30,12 +30,12 @@ self.addEventListener('install', function(event) {
       ]);
     })
   );
-  console.log("cache successful");
+  // console.log("cache successful");
 });
 
 // deletes old cache
 self.addEventListener('activate', function(event) {
-  console.log("Service Worker activated");
+  // console.log("Service Worker activated");
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
@@ -46,22 +46,22 @@ self.addEventListener('activate', function(event) {
           return caches.delete(cacheName);
         })
       );
-      console.log("Old cache removed");
+      // console.log("Old cache removed");
     })
   );
 });
 
 self.addEventListener('fetch', function(event) {
-  console.log("Service Worker starting fetch");
+  // console.log("Service Worker starting fetch");
   event.respondWith(
     caches.open(staticCacheName).then(function(cache) {
       return cache.match(event.request).then(function (response) {
         return response || fetch(event.request).then(function(response) {
           cache.put(event.request, response.clone());
-          console.log("new data added to cache", event.request.url);
+          // console.log("new data added to cache", event.request.url);
           return response;
         }).catch(function(error) {
-          console.log("What is wrong with me service worker?", error);
+          // console.log("What is wrong with me service worker?", error);
           return fetch('img/dr-evil.gif');
         });
       });
