@@ -25,13 +25,13 @@
     display: flex;
     flex-wrap: wrap;
   }
-  #restaurants-list a {
+  #restaurants-list li {
     width: 45%;
   }
-  #restaurants-list a li h1 {
+  #restaurants-list li a h1 {
     font-size: 1.0em;
   }
-  #restaurants-list a li p {
+  #restaurants-list li a p {
     font-size: 0.6em;
   }
 }
