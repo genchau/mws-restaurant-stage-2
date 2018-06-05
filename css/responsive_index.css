@@ -60,13 +60,13 @@
     margin-left: auto;
     margin-right: auto;
   }
-  #restaurants-list a {
+  #restaurants-list li {
     width: 30%;
   }
-  #restaurants-list a li h1 {
+  #restaurants-list li a h1 {
     font-size: 0.9em;
   }
-  #restaurants-list a li p {
+  #restaurants-list li a p {
     font-size: 0.6em;
   }
 }
