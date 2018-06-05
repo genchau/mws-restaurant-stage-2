@@ -23,6 +23,7 @@
     "gulp-babel": "^7.0.1",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.1",
+    "gulp-responsive": "^2.10.0",
     "gulp-webserver": "^0.9.1",
     "idb": "^2.1.2"
   },
