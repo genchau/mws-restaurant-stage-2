@@ -133,6 +133,9 @@ nav h1 a {
   width: 100%;
   background-color: #ccc;
 }
+#mapid { 
+  height: 400px; 
+}
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
