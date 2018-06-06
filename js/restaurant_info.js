@@ -141,38 +141,36 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  * Create review HTML and add it to the webpage.
  */
 createReviewHTML = (review) => {
-  const div2 = document.createElement('div');
-  div2.classList.add("review-single");
 
-    const li = document.createElement('li');
+  const li = document.createElement('li');
+  li.classList.add("review-single");
 
-      const div = document.createElement('div');
-      div.classList.add("review-header");
+    const div = document.createElement('div');
+    div.classList.add("review-header");
 
-        const name = document.createElement('p');
-        name.classList.add("review-name");
-        name.innerHTML = review.name;
-        div.appendChild(name);
+      const name = document.createElement('p');
+      name.classList.add("review-name");
+      name.innerHTML = review.name;
+      div.appendChild(name);
 
-        const date = document.createElement('p');
-        date.classList.add("review-date");
-        date.innerHTML = review.date;
-        div.appendChild(date);
+      const date = document.createElement('p');
+      date.classList.add("review-date");
+      date.innerHTML = review.date;
+      div.appendChild(date);
 
-      li.appendChild(div);
+    li.appendChild(div);
 
-      const rating = document.createElement('p');
-      rating.classList.add("review-rating");
-      rating.innerHTML = `Rating: ${review.rating}`;
-      li.appendChild(rating);
+    const rating = document.createElement('p');
+    rating.classList.add("review-rating");
+    rating.innerHTML = `Rating: ${review.rating}`;
+    li.appendChild(rating);
 
-      const comments = document.createElement('p');
-      comments.classList.add("review-comments");
-      comments.innerHTML = review.comments;
-      li.appendChild(comments);
+    const comments = document.createElement('p');
+    comments.classList.add("review-comments");
+    comments.innerHTML = review.comments;
+    li.appendChild(comments);
 
-    div2.appendChild(li);
-  return div2;
+  return li;
 }
 
 /**

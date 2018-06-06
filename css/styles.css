@@ -23,7 +23,7 @@ a {
 	text-decoration: none;
 }
 a:hover, a:focus {
-	color: #3397db;
+	color: #79B9EC;
 	text-decoration: none;
 }
 a img{
@@ -233,6 +233,11 @@ nav h1 a {
   text-decoration: none;
   text-transform: uppercase;
 }
+#restaurants-list li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
@@ -241,7 +246,7 @@ nav h1 a {
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  /*height: 15em;*/
+  height: 100%;
   width: 100%;
 }
 .inside #map {
@@ -253,7 +258,7 @@ nav h1 a {
 
 }
 #restaurant-name {
-  background-color: #f18200;
+  background-color: #A36900;
   border: 0.2em solid #555;
   border-radius: 1em;
   font-size: 16px;
@@ -308,7 +313,7 @@ nav h1 a {
   padding: 1em 1em;
 }
 #reviews-container h2 {
-  color: #f58500;
+  color: #976502;
   font-size: 24pt;
   font-weight: 300;
   letter-spacing: -1px;
@@ -342,7 +347,7 @@ nav h1 a {
   padding: 1.2em 1em 0 0;
 }
 .review-rating {
-  background-color: #f58500;
+  background-color: #B35E00;
   color: white;
   text-align: center;
   padding: 0.2em;
@@ -356,15 +361,15 @@ nav h1 a {
   font-size: 0.8em;
 }
 #reviews-list li {
+  padding: 0;
   background-color: #fff;
   border: 2px solid #f3f3f3;
   border-radius: 1.5em 0;
   display: block;
   list-style-type: none;
-  margin: 0 0 10px;
+  margin: 0 5px 10px 5px;
   overflow: hidden;
   position: relative;
-  height: 100%;
 }
 #reviews-list li p {
   

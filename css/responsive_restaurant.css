@@ -90,7 +90,6 @@
   }
   .inside #map-container  {
     width: 50%;
-    height: 20em;
   }
   #restaurant-details {
     width: 45%;
@@ -103,13 +102,13 @@
     font-size: 1.0em;
   }
   #reviews-list {
-    width: 100%;
+    width: 95%;
     display: flex;
     flex-wrap: wrap;
     padding: 1em;
   }
   .review-single {
-    width: 46%;
+    width: 48%;
     padding: 0.2em;
   }
   .review-name {
@@ -155,13 +154,13 @@
     width: 100%;
   }
   #reviews-list {
-    width: 100%;
+    width: 96%;
     display: flex;
     flex-wrap: wrap;
     padding: 1em;
   }
   .review-single {
-    width: 31%;
+    width: 32%;
     padding: 0.2em;
   }
   .review-name {
