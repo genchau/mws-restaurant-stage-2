@@ -1,24 +1,44 @@
 let restaurant;
-var map;
 
 /**
- * Initialize Google map, called from HTML.
+ * Initialize Leaflet map.
  */
-window.initMap = () => {
+initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
     if (error) { // Got an error!
       console.error(error);
     } else {
-      self.map = new google.maps.Map(document.getElementById('map'), {
+      const mymap = L.map('mapid', {
         zoom: 16,
         center: restaurant.latlng,
-        scrollwheel: false
+        scrollWheelZoom: false,
       });
+
+      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+          '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+          'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox.streets'
+      }).addTo(mymap);
+
+      let popup = L.popup();
+
+      function onMapClick(e) {
+        popup
+          .setLatLng(e.latlng)
+          .setContent("You clicked the map at " + e.latlng.toString())
+          .openOn(mymap);
+      }
+
+      mymap.on('click', onMapClick);
+      
       fillBreadcrumb();
-      DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
+      DBHelper.mapMarkerForRestaurant(self.restaurant, mymap);
     }
   });
 }
+
 
 /**
  * Get current restaurant from page URL.
@@ -180,3 +200,5 @@ getParameterByName = (name, url) => {
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
+initMap();

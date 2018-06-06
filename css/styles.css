@@ -128,13 +128,13 @@ nav h1 a {
 #map-container {
   width: 100%;
 }
-#map {
+#mapid {
   height: 400px;
   width: 100%;
   background-color: #ccc;
 }
-#mapid { 
-  height: 400px; 
+.leaflet-container .leaflet-control-attribution {
+  background: rgba(255,255,255,1.0);
 }
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
@@ -241,7 +241,7 @@ nav h1 a {
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 15em;
+  /*height: 15em;*/
   width: 100%;
 }
 .inside #map {
