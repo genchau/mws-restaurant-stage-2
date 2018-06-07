@@ -2,6 +2,8 @@
 
 An offline-first, PWA, Restaurant Reviews app. Part of a Udacity Mobile Web Specialist Nanodegree program, 3-parts project. 
 
+<img src="./img/restaurant-reviews_homepage_screenshot.png" alt="Preview of the Restaurant Reviews app homepage.">
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
