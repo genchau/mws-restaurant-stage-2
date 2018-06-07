@@ -1,4 +1,4 @@
-const staticCacheName = 'restaurant-reviews-v17';
+const staticCacheName = 'restaurant-reviews-v23';
 
 self.addEventListener('install', function(event) {
   // console.log("Service Worker installed");
@@ -9,6 +9,8 @@ self.addEventListener('install', function(event) {
         './index.html',
         './restaurant.html',
         './service_worker.js',
+        './manifest.json',
+        './favicon.ico',
         './css/responsive_index.css',
         './css/responsive_restaurant.css',
         './css/styles.css',
@@ -22,10 +24,20 @@ self.addEventListener('install', function(event) {
         './img/8.webp',
         './img/9.webp',
         './img/10.webp',
+        './img/marker-icon-2x-red.png',
+        './img/marker-shadow.png',
+        './js/idb.js',
         './js/dbhelper.js',
         './js/indexController.js',
+        './js/bouncemarker.js',
         './js/main.js',
         './js/restaurant_info.js',
+        'http://localhost:1337/restaurants/',
+        'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js',
+        'https://fonts.googleapis.com/css?family=Open+Sans:300,400',
+        'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
+        // 'https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OUuhp.woff',
+        // 'https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0b.woff2',
       ]);
     })
   );
@@ -55,15 +67,22 @@ self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.open(staticCacheName).then(function(cache) {
       return cache.match(event.request).then(function (response) {
-        return response || fetch(event.request).then(function(response) {
-          cache.put(event.request, response.clone());
-          // console.log("new data added to cache", event.request.url);
+        if (response) {
+          // console.log("data fetched from cache");
           return response;
-        }).catch(function(error) {
-          // console.log("What is wrong with me service worker?", error);
-          return fetch('img/dr-evil.gif');
-        });
+        }
+        else {
+          return fetch(event.request).then(function(networkResponse) {
+            // console.log("data fetched from network", event.request.url);
+            //cache.put(event.request, networkResponse.clone());
+            return networkResponse;
+          }).catch(function(error) {
+            console.log("Unable to fetch data from network", event.request.url, error);
+          });
+        }
       });
+    }).catch(function(error) {
+      console.log("Something went wrong with Service Worker fetch intercept", error);
     })
   );
 });

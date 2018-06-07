@@ -19,13 +19,14 @@ const idbApp = (function() {
   });
 
   function addRestaurantById(restaurant) {
-    dbPromise.then(function(db) {
+    return dbPromise.then(function(db) {
       const tx = db.transaction('restaurants', 'readwrite');
       const store = tx.objectStore('restaurants');
-      return store.put(restaurant);
-    }).catch(function(e) {
-      tx.abort();
-      console.log("Unable to add restaurant to IndexedDB", e);
+      store.put(restaurant);
+      return tx.complete;
+    }).catch(function(error) {
+      // tx.abort();
+      console.log("Unable to add restaurant to IndexedDB", error);
     });
   }
 
@@ -98,7 +99,8 @@ class DBHelper {
           } else {
             const restaurant = restaurants.find(r => r.id == id);
             if (restaurant) { // Got the restaurant
-              idbApp.addRestaurantById(restaurant); // adding restaurant to IndexedDB
+              let idbMessages = idbApp.addRestaurantById(restaurant); // adding restaurant to IndexedDB
+              // console.log("idbMessages", idbMessages);
               console.log("GC: fetchRestaurantById from network");
               callback(null, restaurant);
             } else { // Restaurant does not exist in the database
@@ -226,8 +228,8 @@ class DBHelper {
   static mapMarkerForRestaurant(restaurant, map) {
     // icon color plugin came from this repo https://github.com/pointhi/leaflet-color-markers
     const redIcon = new L.Icon({
-      iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+      iconUrl: './img/marker-icon-2x-red.png',
+      shadowUrl: './img/marker-shadow.png',
       iconSize: [25, 41],
       iconAnchor: [12, 41],
       popupAnchor: [1, -34],
