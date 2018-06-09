@@ -132,7 +132,9 @@ resetRestaurants = (restaurants) => {
   ul.innerHTML = '';
 
   // Remove all map markers
-  self.markers.forEach(marker => marker.remove());
+  if (self.markers) {
+    self.markers.forEach(marker => marker.remove());
+  }
   self.markers = [];
   self.restaurants = restaurants;
 }
